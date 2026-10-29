@@ -22,7 +22,7 @@ PRINT = HERE / "print"
 PREVIEW = HERE / "previews"
 ART = HERE / "assets" / "art"
 
-DRAGONS = 28
+DRAGONS = 40
 QR = "https://pandadudeproducts.com/glow/?s={}"
 URL_SHOWN = "pandadudeproducts.com/glow"
 

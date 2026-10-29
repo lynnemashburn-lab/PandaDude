@@ -11,7 +11,7 @@ Everything to print is in `print/`. Pictures of each one are in `previews/`.
 | `Tent-CANDY.pdf` | Color | Letter cardstock | 1 |
 | `Tent-FIDGETS-home.pdf` | Color | Letter cardstock | 1 if the fidgets stay home |
 | `Tent-FIDGETS-party.pdf` | Color | Letter cardstock | 1 if the fidgets go to the party |
-| `Bag-label-DRAGON-203dpi.png` | MUNBYN | 2 in clear round | 28, one per dragon bag |
+| `Bag-label-DRAGON-203dpi.png` | MUNBYN | 2 in clear round | one per dragon bag (40 go in the bowl) |
 | `Bag-label-FIDGET-203dpi.png` | MUNBYN | 2 in clear round | one per fidget bag |
 
 Print the signs at **100% / Actual size**, never "Fit to page".
