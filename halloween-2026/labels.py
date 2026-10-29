@@ -18,7 +18,7 @@ DPI = 203
 SIZE = 2 * DPI            # 406 dots across the label
 C = SIZE / 2              # label center
 MODULE = 5                # dots per QR module
-QR_SHIFT = -10            # nudge the QR up to leave room for the text below it
+QR_SHIFT = -5             # nudge the QR up, splitting the spare room between the lines above and below it
 LOGO_MODULES = 11         # white knockout in the QR center for the panda
 
 LABELS = {
@@ -81,6 +81,7 @@ def label_svg(url):
 <text font-family="Space Mono" font-weight="700" font-size="21" fill="#000" text-anchor="middle">
   <textPath href="#bot" startOffset="50%">pandadudeproducts.com</textPath>
 </text>
+<text x="{C}" y="{y0 - 11}" font-family="Archivo" font-weight="800" font-stretch="75%" font-size="17" letter-spacing="0.6" fill="#000" text-anchor="middle">SCAN FOR 10% OFF</text>
 <text x="{C}" y="{small_y}" font-family="Archivo" font-weight="800" font-stretch="75%" font-size="15" letter-spacing="0.5" fill="#000" text-anchor="middle">SMALL PARTS · NOT FOR UNDER 3</text>
 </svg>"""
 
