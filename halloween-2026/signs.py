@@ -118,7 +118,7 @@ def dragon_tent():
   <div class="left">
     <h1 class="head" style="font-size:78pt">Free glow<br>dragon</h1>
     <p class="lede">One per person, please. There are {DRAGONS}.</p>
-    <p class="line">Carter, age 8, printed them in this garage.</p>
+    <p class="line">Carter, age 8, printed them in this house.</p>
     <p class="line">Charge it in light, then turn the lights off.</p>
     <div class="foot">
       <p class="allgone">All gone? Sorry, {DRAGONS} was the limit. Scan anyway: bigger dragons, porch pickup, no shipping.</p>
@@ -201,12 +201,12 @@ def business_sign():
   {band("Happy Halloween from")}
   {art("panda", "art bizart")}
   <h1 class="head" style="font-size:76pt;text-align:center;margin-top:0.06in">Meet PandaDude</h1>
-  <p class="who">Carter, age 8, printed everything here in his garage.</p>
+  <p class="who">Carter, age 8, printed everything here in this house.</p>
   <p class="what">PandaDude Products is his kid-run 3D print shop in Forsyth County: articulated dragons that wiggle, curl and click, printed one thin layer at a time.</p>
   <div class="chips">
     <div><b>Christmas dragons</b><span>first drop Nov 1</span></div>
     <div><b>Porch pickup</b><span>on our street, no shipping</span></div>
-    <div><b>Made right here</b><span>printed in this garage</span></div>
+    <div><b>Made right here</b><span>printed in this house</span></div>
   </div>
   <div class="scanrow">
     <div class="bigqr">{qr("sign")}</div>
