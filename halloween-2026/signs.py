@@ -12,6 +12,8 @@ import json
 import pathlib
 import subprocess
 
+from PIL import Image
+
 from labels import PANDA, qr_svg
 
 HERE = pathlib.Path(__file__).parent
@@ -42,7 +44,10 @@ def panda(cls="panda"):
 def art(name, cls="art"):
     path = ART / f"{name}.png"
     if path.exists():
-        return f'<img class="{cls}" src="{path.resolve().as_uri()}">'
+        clean = OUT / f"art-{name}.png"
+        img = Image.open(path).convert("RGB")
+        img.point(lambda v: min(255, round(v * 255 / 236))).save(clean)
+        return f'<img class="{cls}" src="{clean.resolve().as_uri()}">'
     return f'<div class="{cls} missing">art: {name}</div>'
 
 
@@ -115,15 +120,15 @@ def dragon_tent():
     <p class="lede">One per person, please. There are {DRAGONS}.</p>
     <p class="line">Carter, age 8, printed them in this garage.</p>
     <p class="line">Charge it in light, then turn the lights off.</p>
+    <div class="foot">
+      <p class="allgone">All gone? Sorry, {DRAGONS} was the limit. Scan anyway: bigger dragons, porch pickup, no shipping.</p>
+      <p class="fine">Small parts: not for kids under 3. Dragon designs by Cinderwing3D, printed under license.</p>
+    </div>
   </div>
   <div class="right">
     {art("dragon", "art tentart")}
-    {scan_block("sign", "Scan for the story + 10% off")}
+    {scan_block("sign", "Scan: story + 10% off")}
   </div>
-</div>
-<div class="foot">
-  <p class="allgone">All gone? Sorry, {DRAGONS} was the limit. Scan anyway: bigger dragons, porch pickup, no shipping.</p>
-  <p class="fine">Small parts: not for kids under 3. Dragon designs by Cinderwing3D, printed under license.</p>
 </div>"""
     return tent(face, "dragon")
 
@@ -136,14 +141,14 @@ def fidget_home_tent():
     <h1 class="head" style="font-size:78pt">Free<br>fidgets</h1>
     <p class="lede">Take one! Carter printed every one.</p>
     <p class="line">Glow ones: charge it in light, then turn the lights off.</p>
+    <div class="foot">
+      <p class="fine">PandaDude Products, a kid-run 3D print shop. Small parts: not for kids under 3.</p>
+    </div>
   </div>
   <div class="right">
     {art("fidget", "art tentart")}
-    {scan_block("sign", "Scan for the story + 10% off")}
+    {scan_block("sign", "Scan: story + 10% off")}
   </div>
-</div>
-<div class="foot">
-  <p class="fine">PandaDude Products, a kid-run 3D print shop. Small parts: not for kids under 3.</p>
 </div>"""
     return tent(face, "fidget")
 
@@ -157,14 +162,14 @@ def fidget_party_tent():
     <p class="lede">Take one!</p>
     <p class="line">PandaDude Products is his kid-run 3D print shop in Forsyth County.</p>
     <p class="line">Glow ones: charge it in light, then turn the lights off.</p>
+    <div class="foot">
+      <p class="fine">Small parts: not for kids under 3.</p>
+    </div>
   </div>
   <div class="right">
     {art("fidget", "art tentart")}
-    {scan_block("party", "Story, 10% off + bigger dragons")}
+    {scan_block("party", "Scan: story + 10% off")}
   </div>
-</div>
-<div class="foot">
-  <p class="fine">Small parts: not for kids under 3.</p>
 </div>"""
     return tent(face, "party")
 
@@ -187,7 +192,7 @@ def candy_tent():
     return tent(face, "candy").replace("</style>", extra + "</style>", 1)
 
 
-TENT_EXTRA = ".tentart { width: 2.45in; height: 1.95in; }"
+TENT_EXTRA = ".tentart { width: 2.45in; height: 1.72in; }"
 
 
 def business_sign():
