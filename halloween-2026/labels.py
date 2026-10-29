@@ -26,6 +26,9 @@ LABELS = {
     "fidget": "https://pandadudeproducts.com/glow/?s=card",
 }
 
+# Small letter beside the QR so the two labels can be told apart on the roll.
+MARKS = {"dragon": "D", "fidget": "F"}
+
 PANDA = (
     '<circle cx="42" cy="34" r="30" fill="#000"/>'
     '<circle cx="158" cy="34" r="30" fill="#000"/>'
@@ -58,7 +61,7 @@ def qr_svg(url, x0, y0, module, logo_modules):
     return n, f'<g fill="#000" shape-rendering="crispEdges">{"".join(rects)}</g>{logo}'
 
 
-def label_svg(url):
+def label_svg(url, mark=""):
     n, qr = qr_svg(url, 0, 0, MODULE, LOGO_MODULES)
     side = n * MODULE
     x0 = round(C - side / 2)
@@ -82,6 +85,7 @@ def label_svg(url):
   <textPath href="#bot" startOffset="50%">pandadudeproducts.com</textPath>
 </text>
 <text x="{C}" y="{y0 - 11}" font-family="Archivo" font-weight="800" font-stretch="75%" font-size="17" letter-spacing="0.6" fill="#000" text-anchor="middle">SCAN FOR 10% OFF</text>
+<text x="{C + 140}" y="{C + QR_SHIFT + 7}" font-family="Anton" font-size="20" fill="#000" text-anchor="middle">{mark}</text>
 <text x="{C}" y="{small_y}" font-family="Archivo" font-weight="800" font-stretch="75%" font-size="15" letter-spacing="0.5" fill="#000" text-anchor="middle">SMALL PARTS · NOT FOR UNDER 3</text>
 </svg>"""
 
@@ -103,7 +107,7 @@ def main():
     PREVIEW.mkdir(exist_ok=True)
     jobs = []
     for name, url in LABELS.items():
-        svg = label_svg(url)
+        svg = label_svg(url, MARKS[name])
         # PNG: one CSS px per printer dot. PDF: the same drawing at exactly 2 x 2 in.
         (OUT / f"label-{name}-dots.html").write_text(FONTS + svg)
         (OUT / f"label-{name}-2in.html").write_text(
