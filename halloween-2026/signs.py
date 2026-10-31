@@ -80,7 +80,8 @@ body { width: 8.5in; height: 11in; overflow: hidden; color: #111; font-family: A
 .face.bottom { top: 5.5in; }
 .fold { position: absolute; top: 5.5in; left: 0.3in; right: 0.3in; border-top: 1.5px dashed #9a9a9a; }
 .fold span { position: absolute; right: 0; top: -0.17in; font: 700 7pt 'Space Mono'; color: #9a9a9a; letter-spacing: 0.1em; }
-.face .band { height: 0.46in; font-size: 11pt; flex: none; }
+.face .band { height: 0.6in; flex: none; font-family: Anton; font-weight: 400; font-size: 22pt; letter-spacing: 0.03em; gap: 0.18in; }
+.face .band .panda { height: 0.4in; }
 .face .body { flex: 1; display: grid; grid-template-columns: 1fr 2.45in; column-gap: 0.3in; padding-top: 0.18in; min-height: 0; }
 .face .left { display: flex; flex-direction: column; min-width: 0; }
 .face .right { display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 0; }
@@ -104,7 +105,7 @@ def tent(face_html, cls):
 
 
 def band(text):
-    return f'<div class="band">{panda()}<span>{text}</span></div>'
+    return f'<div class="band">{panda()}<span>{text}</span>{panda()}</div>'
 
 
 def scan_block(tag, caption):
