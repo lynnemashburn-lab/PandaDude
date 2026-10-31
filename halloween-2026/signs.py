@@ -204,6 +204,11 @@ def business_sign():
   <h1 class="head" style="font-size:80pt;text-align:center;margin-top:0.08in">Meet PandaDude</h1>
   <p class="who">Carter, age 8, printed these right here in this house.</p>
   <p class="what">PandaDude Products is his kid-run 3D print shop in Forsyth County: articulated dragons that wiggle, curl and click, printed one thin layer at a time.</p>
+  <div class="chips">
+    <div><b>Christmas dragons</b><span>first drop Nov 1</span></div>
+    <div><b>Porch pickup</b><span>on our street, no shipping</span></div>
+    <div><b>Made right here</b><span>printed in this house</span></div>
+  </div>
   <div class="scanrow">
     <div class="bigqr">{qr("sign")}</div>
     <div class="head" style="font-size:40pt">Scan for<br>the story<br>+ 10% off</div>
@@ -214,11 +219,15 @@ def business_sign():
 .biz { width: 8.5in; height: 11in; padding: 0.5in 0.55in 0.45in; display: flex; flex-direction: column; align-items: stretch; }
 .biz .bigband { height: 0.85in; flex: none; font-family: Anton; font-weight: 400; font-size: 36pt; letter-spacing: 0.02em; gap: 0.22in; }
 .biz .bigband .panda { height: 0.52in; }
-.bizart { width: 100%; height: 3.7in; margin-top: 0.15in; }
+.bizart { width: 100%; height: 3.05in; margin-top: 0.12in; }
 .biz .who { font-weight: 800; font-size: 20pt; text-align: center; margin: 0.12in 0 0; }
 .biz .what { font-weight: 500; font-size: 13pt; text-align: center; margin: 0.1in 0.25in 0; line-height: 1.35; }
-.scanrow { display: flex; justify-content: center; align-items: center; gap: 0.4in; margin-top: 0.3in; }
-.bigqr { width: 2.2in; }
+.chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.14in; margin-top: 0.2in; }
+.chips div { border: 2.5px solid var(--ink); border-radius: 0.12in; padding: 0.08in 0.1in; text-align: center; }
+.chips b { display: block; font-family: Anton; font-weight: 400; font-size: 15pt; text-transform: uppercase; letter-spacing: 0.02em; }
+.chips span { display: block; font-size: 10pt; font-weight: 600; margin-top: 0.02in; }
+.scanrow { display: flex; justify-content: center; align-items: center; gap: 0.4in; margin-top: 0.25in; }
+.bigqr { width: 2.1in; }
 """
     return page(body, extra)
 
